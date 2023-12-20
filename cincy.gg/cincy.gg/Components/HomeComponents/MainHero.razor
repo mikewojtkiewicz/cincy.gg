@@ -1,0 +1,70 @@
+﻿@using Newtonsoft.Json
+@using cincy.gg.Services
+<section id="home" class="hero">
+    <h1 class="animate__animated animate__fadeIn">Welcome to <span class="server-brand">Cincy.gg</span></h1>
+    <p class="animate__animated animate__fadeIn">Your ultimate Rust gaming experience.</p>
+</section>
+@if (isServerOnline)
+{
+    <section id="servers" class="servers">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="server animate__animated animate__fadeIn">
+                    <div class="server-image-container">
+                        <img class="server-image img-fluid" src="./img/08d64340-d3d1-47c3-81c3-8506420dec8f.webp" alt="Cincy.gg 420 | No KOS | Noob Friendly" title="Cali.gg 420 | No KOS | Noob Friendly" />
+                        <div class="server-image-overlay"></div>
+                    </div>
+                    <div class="server-container">
+                        <span class="server-name">@serverStatus?.Hostname</span>
+                        <span class="server-description">Cincy.gg Maps</span>
+                        <div class="server-tags"></div>
+                        <span class="server-players">
+                            @serverStatus?.Players / @serverStatus?.MaxPlayers players
+                        </span>
+                        <div class="progress">
+                            <div class="progress-bar bg-rust" role="progressbar" aria-label="Amount of players" aria-valuemin="@serverStatus?.Players" aria-valuemax="@serverStatus?.MaxPlayers" style="width: @onlinePercentage%;"></div>
+                        </div>
+                        <a href="steam://connect/142.4.223.129:2023?appid=252490" title="Connect via Steam" class="btn btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                            Connect
+                        </a>
+                        @*                     <a href="#" target="_blank" title="Shop" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                    Shop
+                    </a> *@
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#server0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <section id="servers" class="servers">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6">
+                <div class="server animate__animated animate__fadeIn">
+                    <div class="server-image-container">
+                        <img class="server-image img-fluid" src="./img/08d64340-d3d1-47c3-81c3-8506420dec8f.webp" alt="Cincy.gg 420 | No KOS | Noob Friendly" title="Cali.gg 420 | No KOS | Noob Friendly" />
+                        <div class="server-image-overlay"></div>
+                    </div>
+                    <div class="server-container">
+                        Server Currently Offline
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
